@@ -2,6 +2,9 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import Home from "../pages/Home/Home";
 import Category_News from "../pages/Category_News/Category_News";
 import Login from "../pages/Login/Login";
+import Register from "../pages/Register/Register";
+import NewsDetails from "../pages/NewsDetails/NewsDetails";
+import PrivateRoute from "./PrivateRoute";
 export const router = createBrowserRouter(
   [
     {
@@ -23,9 +26,17 @@ export const router = createBrowserRouter(
       ],
     },
     {
-      path:"/login",
-      element:<Login/>
-    }
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/register",
+      element: <Register />,
+    },
+    {
+      path: "/news/details/:id",
+      element: <PrivateRoute><NewsDetails/></PrivateRoute>
+    },
   ],
   {
     future: {

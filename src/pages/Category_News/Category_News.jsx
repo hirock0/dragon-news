@@ -1,11 +1,10 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useAppContext } from "../../ContextApiProvider";
 import { FaShareAlt, FaStar, FaEye } from "react-icons/fa";
 import { CiBookmark } from "react-icons/ci";
 const Category_news = () => {
   const { id } = useParams();
-  const { setCatId, newsArray } = useAppContext();
-
+  const { newsArray, setIsLoading } = useAppContext();
   const filterData = newsArray?.filter((item) => {
     if (Number(item.category_id) !== Number(id)) {
       return item;
@@ -57,7 +56,12 @@ const Category_news = () => {
 
             <p className="p-4 text-gray-600 text-sm">
               {news?.details.slice(0, 400)}...
-              <button className="text-blue-500 ml-1">Read More</button>
+              <Link
+                to={`/news/details/${news?._id}`}
+                className="text-blue-500 ml-1"
+              >
+                Read More
+              </Link>
             </p>
 
             <div className="px-4 pb-4 flex items-center justify-between border-t border-gray-200">

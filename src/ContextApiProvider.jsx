@@ -10,11 +10,19 @@ const ContextApiProvider = ({ children }) => {
   const [categories, setCategories] = useState([]);
   const [newsArray, setNewsArray] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [catTd, setCatId] = useState("01");
+  const [catId, setCatId] = useState("0");
   const [scrollFlag, setScrollFlag] = useState(false);
   const [categoryFlag, setCategoryFlag] = useState(false);
   const [categoryFlag2, setCategoryFlag2] = useState(false);
   const [navFlag, setNavFlag] = useState(false);
+
+  const onLogin = (e) => {
+    e.preventDefault();
+  };
+
+  const onRegister = (e) => {
+    e.preventDefault();
+  };
 
   const value = {
     categories,
@@ -23,7 +31,7 @@ const ContextApiProvider = ({ children }) => {
     setNewsArray,
     isLoading,
     setIsLoading,
-    catTd,
+    catId,
     setCatId,
     scrollFlag,
     setScrollFlag,
@@ -33,6 +41,8 @@ const ContextApiProvider = ({ children }) => {
     setCategoryFlag2,
     navFlag,
     setNavFlag,
+    onLogin,
+    onRegister,
   };
 
   useEffect(() => {
@@ -50,7 +60,7 @@ const ContextApiProvider = ({ children }) => {
     const windowEvent = window.addEventListener("click", () => {
       setCategoryFlag(false);
       setCategoryFlag2(false);
-      setNavFlag(false)
+      setNavFlag(false);
     });
 
     return () => {
@@ -60,7 +70,7 @@ const ContextApiProvider = ({ children }) => {
 
   return (
     <div className=" font-poppins" data-theme="light">
-      <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+      <AppContext.Provider value={value}>{children}</AppContext.Provider>
     </div>
   );
 };
