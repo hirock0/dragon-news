@@ -41,7 +41,7 @@ const NavBar = () => {
           >
             <RxHamburgerMenu size={25} />
           </button>
-          <div className="">logo</div>
+          <div className=" ">logo</div>
         </div>
         <div
           onClick={(e) => e.stopPropagation()}

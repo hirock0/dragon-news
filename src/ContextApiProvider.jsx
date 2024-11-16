@@ -15,6 +15,7 @@ const ContextApiProvider = ({ children }) => {
   const [categoryFlag, setCategoryFlag] = useState(false);
   const [categoryFlag2, setCategoryFlag2] = useState(false);
   const [navFlag, setNavFlag] = useState(false);
+  const [sideNavFlag, setSideNavFlag] = useState(false);
 
   const onLogin = (e) => {
     e.preventDefault();
@@ -43,6 +44,8 @@ const ContextApiProvider = ({ children }) => {
     setNavFlag,
     onLogin,
     onRegister,
+    sideNavFlag,
+    setSideNavFlag,
   };
 
   useEffect(() => {
@@ -61,6 +64,7 @@ const ContextApiProvider = ({ children }) => {
       setCategoryFlag(false);
       setCategoryFlag2(false);
       setNavFlag(false);
+      setSideNavFlag(false);
     });
 
     return () => {
