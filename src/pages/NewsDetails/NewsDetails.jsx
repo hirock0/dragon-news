@@ -3,7 +3,6 @@ import RightAside from "../../components/HomePageLayout/RightAside";
 import TopHeader from "../../components/TopHeader/TopHeader";
 import { useAppContext } from "../../ContextApiProvider";
 import { IoMdMenu } from "react-icons/io";
-import { useState } from "react";
 const NewsDetails = () => {
   const params = useParams();
   const Id = params.id || "";
@@ -20,9 +19,8 @@ const NewsDetails = () => {
             onClick={(e) => {
               e.stopPropagation(), setSideNavFlag(!sideNavFlag);
             }}
-                      
             className=" "
-            >
+          >
             <IoMdMenu size={25} />
           </button>
         </div>

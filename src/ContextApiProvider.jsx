@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 
 const AppContext = createContext();
 
@@ -17,12 +18,27 @@ const ContextApiProvider = ({ children }) => {
   const [navFlag, setNavFlag] = useState(false);
   const [sideNavFlag, setSideNavFlag] = useState(false);
 
+  const {
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   const onLogin = (e) => {
-    e.preventDefault();
+    try {
+      console.log(e);
+    } catch (error) {
+      throw new Error(error);
+    }
   };
 
   const onRegister = (e) => {
-    e.preventDefault();
+    try {
+      console.log(e);
+    } catch (error) {
+      throw new Error(error);
+    }
   };
 
   const value = {
@@ -46,6 +62,10 @@ const ContextApiProvider = ({ children }) => {
     onRegister,
     sideNavFlag,
     setSideNavFlag,
+    register,
+    reset,
+    handleSubmit,
+    errors,
   };
 
   useEffect(() => {
